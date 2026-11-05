@@ -123,7 +123,7 @@
     </div>
     <div class="hero-photo">
       <!-- Замените этот блок на <img src="ваше-фото.jpg"> с портретом врача -->
-      <div class="photo-placeholder">Здесь будет фото врача<br>(рекомендуется 3:4, 600×800 px)</div>
+     <img src="doctor.jpg" alt="Камышанова Елизавета Сергеевна, врач-эндокринолог" style="width:100%; max-width:200px; height:auto; border-radius:12px;" />
     </div>
   </div>
 </section>
