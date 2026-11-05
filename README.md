@@ -262,7 +262,7 @@
         </div>
         <div>
             <!-- Замените src на путь к сертификатам: images/certs.jpg -->
-            <img src="images/certs.jpg" alt="Сертификаты и дипломы Камышановой Е.С." class="certs-img">
+            <img src="diplom.jpg" alt="Сертификаты и дипломы Камышановой Е.С." class="certs-img">
         </div>
     </div>
 </section>
