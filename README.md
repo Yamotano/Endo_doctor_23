@@ -1,269 +1,336 @@
-
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Камышанова Елизавета Сергеевна — врач-эндокринолог | Онлайн-приём</title>
-<meta name="description" content="Консультация врача-эндокринолога онлайн. Лечение диабета, заболеваний щитовидной железы, коррекция веса. Запись на приём за 1 минуту.">
-<style>
-  :root{
-    --accent:#0e7c66;
-    --accent-dark:#0a5c4c;
-    --accent-light:#e6f4f0;
-    --text:#1d2b28;
-    --muted:#5f6f6b;
-    --bg:#ffffff;
-    --radius:16px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;}
-  .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Врач-эндокринолог Камышанова Е.С. — онлайн-приём</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --dark: #2c3e50;
+            --light: #f4f7f6;
+            --white: #ffffff;
+            --radius: 12px;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--light);
+        }
 
-  /* ---------- Header ---------- */
-  header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #eef2f1;z-index:50;}
-  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-  .logo{font-weight:700;font-size:1.15rem;color:var(--accent);text-decoration:none;}
-  nav a{margin-left:24px;color:var(--text);text-decoration:none;font-size:.95rem;}
-  nav a:hover{color:var(--accent);}
-  .btn{display:inline-block;padding:12px 28px;border-radius:40px;font-weight:600;text-decoration:none;transition:.2s;cursor:pointer;border:none;font-size:1rem;}
-  .btn-primary{background:var(--accent);color:#fff;}
-  .btn-primary:hover{background:var(--accent-dark);}
-  .btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent;}
-  .btn-outline:hover{background:var(--accent-light);}
-  @media(max-width:760px){nav{display:none;}}
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        nav a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            display: none; /* скрываем ссылки на мобильных */
+        }
+        @media (min-width: 768px) {
+            nav a { display: inline-block; }
+        }
+        .btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.7rem 1.4rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .btn:hover { background: #357abd; }
 
-  /* ---------- Hero ---------- */
-  .hero{background:linear-gradient(135deg,#e6f4f0 0%,#f7fbf9 100%);padding:70px 0;}
-  .hero-inner{display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
-  .hero-text{flex:1 1 420px;}
-  .hero h1{font-size:2.4rem;line-height:1.2;margin-bottom:16px;}
-  .hero p{color:var(--muted);font-size:1.1rem;margin-bottom:28px;max-width:520px;}
-  .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
-  .badge{background:#fff;border:1px solid #dcebe6;border-radius:30px;padding:6px 14px;font-size:.85rem;color:var(--accent-dark);}
-  .hero-photo{flex:0 1 320px;text-align:center;}
-  .photo-placeholder{width:280px;height:340px;border-radius:var(--radius);background:linear-gradient(160deg,#bfe3d8,#e9f5f1);display:flex;align-items:center;justify-content:center;color:var(--accent-dark);font-size:.95rem;text-align:center;padding:20px;margin:0 auto;}
+        /* Hero */
+        .hero {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(135deg, #eef2f5, #ffffff);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .doctor-img-wrapper {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .doctor-img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
 
-  /* ---------- Sections ---------- */
-  section{padding:70px 0;}
-  .section-title{font-size:1.8rem;margin-bottom:8px;text-align:center;}
-  .section-sub{color:var(--muted);text-align:center;margin-bottom:44px;}
+        section { padding: 3rem 1.5rem; }
+        h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-  .card{background:#f8fbfa;border:1px solid #eaf1ef;border-radius:var(--radius);padding:26px;}
-  .card h3{margin-bottom:10px;color:var(--accent-dark);font-size:1.1rem;}
-  .card p{color:var(--muted);font-size:.95rem;}
+        /* Grid cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .card h3 { margin-top: 0; color: var(--primary); }
 
-  /* ---------- About ---------- */
-  .about{background:var(--accent-light);}
-  .about-inner{display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
-  .about-text{flex:1 1 420px;}
-  .about-text ul{list-style:none;margin-top:16px;}
-  .about-text li{padding-left:28px;position:relative;margin-bottom:10px;}
-  .about-text li::before{content:"✔";position:absolute;left:0;color:var(--accent);}
-  .about-stats{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap;}
-  .stat b{display:block;font-size:1.6rem;color:var(--accent);}
+        /* About */
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .certs-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        @media (max-width: 768px) {
+            .about-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.9rem; }
+        }
 
-  /* ---------- Steps ---------- */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:step;}
-  .step{background:#fff;border:1px solid #eaf1ef;border-radius:var(--radius);padding:26px;position:relative;counter-increment:step;}
-  .step::before{content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:14px;}
+        /* Form */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .form-group { margin-bottom: 1rem; }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font: inherit;
+            box-sizing: border-box;
+        }
+        textarea { resize: vertical; min-height: 100px; }
 
-  /* ---------- FAQ ---------- */
-  details{background:#f8fbfa;border:1px solid #eaf1ef;border-radius:var(--radius);padding:18px 22px;margin-bottom:12px;}
-  summary{font-weight:600;cursor:pointer;}
-  details p{margin-top:10px;color:var(--muted);}
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .legal {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 1.5rem;
+        }
 
-  /* ---------- Form ---------- */
-  .booking{background:linear-gradient(135deg,#0e7c66,#0a5c4c);color:#fff;}
-  .booking .section-title,.booking .section-sub{color:#fff;}
-  .form-card{background:#fff;color:var(--text);border-radius:var(--radius);padding:34px;max-width:560px;margin:0 auto;box-shadow:0 20px 50px rgba(0,0,0,.15);}
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  .form-grid .full{grid-column:1/-1;}
-  label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;}
-  input,select,textarea{width:100%;padding:12px 14px;border:1px solid #d8e4e0;border-radius:10px;font-size:1rem;font-family:inherit;background:#fbfdfc;}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
-  .form-card .btn{width:100%;margin-top:20px;}
-  .form-note{font-size:.8rem;color:var(--muted);margin-top:14px;text-align:center;}
-  .form-success{display:none;text-align:center;padding:20px 0;color:var(--accent-dark);font-weight:600;}
-  @media(max-width:560px){.form-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Footer ---------- */
-  footer{background:#12241f;color:#cfe3dc;padding:40px 0;font-size:.9rem;}
-  footer a{color:#9fd8c6;}
-  .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-</style>
+        /* Mobile CTA button (sticky at bottom on mobile) */
+        @media (max-width: 768px) {
+            .mobile-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                background: var(--white);
+                border-top: 1px solid #eee;
+                text-align: center;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
+                z-index: 999;
+            }
+            .mobile-cta .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <div class="container header-inner">
-    <a href="#" class="logo">Камышанова Елизавета · эндокринолог</a>
+    <div class="logo">Камышанова Е.С.</div>
     <nav>
-      <a href="#services">Услуги</a>
-      <a href="#about">Обо мне</a>
-      <a href="#steps">Как всё проходит</a>
-      <a href="#faq">Вопросы</a>
+        <a href="#services">Услуги</a>
+        <a href="#about">Обо мне</a>
+        <a href="#faq">FAQ</a>
     </nav>
-    <a href="#booking" class="btn btn-primary">Записаться</a>
-  </div>
+    <!-- Кнопка в шапке (видна на ПК) -->
+    <a href="#contact" class="btn">Записаться</a>
 </header>
 
-<!-- HERO -->
+<!-- Мобильная кнопка внизу экрана -->
+<div class="mobile-cta">
+    <a href="#contact" class="btn">Записаться на приём</a>
+</div>
+
 <section class="hero">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <h1>Забота о гормонах —<br>из любой точки мира</h1>
-      <p>Врач-эндокринолог. Онлайн-консультации по диабету, щитовидной железе, весу и гормональному здоровью. Разбор анализов и понятный план действий.</p>
-      <div class="hero-badges">
-        <span class="badge">Стаж 8 лет</span>
-        <span class="badge">Приём в МАХ / WhatsApp</span>
-      </div>
-      <a href="#booking" class="btn btn-primary">Записаться на приём</a>
+    <div class="doctor-img-wrapper">
+        <!-- Замените src на путь к фото: images/doctor.jpg -->
+        <img src="images/doctor.jpg" alt="Камышанова Елизавета Сергеевна, врач-эндокринолог" class="doctor-img">
     </div>
-    <div class="hero-photo">
-      <!-- Замените этот блок на <img src="ваше-фото.jpg"> с портретом врача -->
-     <img src="doctor.jpg" alt="Камышанова Елизавета Сергеевна, врач-эндокринолог" style="width:100%; max-width:200px; height:auto; border-radius:12px;" />
-    </div>
-  </div>
+    <h1>Камышанова Елизавета Сергеевна<br>Врач-эндокринолог</h1>
+    <p>Онлайн-консультации по вопросам щитовидной железы, диабета, коррекции веса и гормонального фона. Приём с разбором анализов и персональными рекомендациями.</p>
+    <a href="#contact" class="btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Записаться на приём</a>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
-  <div class="container">
-    <h2 class="section-title">С чем я помогаю</h2>
-    <p class="section-sub">Первичный приём — 40 минут. Повторный — 25 минут.</p>
-    <div class="cards">
-      <div class="card"><h3>Диабет 1 и 2 типа</h3><p>Подбор и коррекция терапии, обучение самоконтролю, разбор гликемического профиля.</p></div>
-      <div class="card"><h3>Щитовидная железа</h3><p>Тиреоидиты, гипо- и гипертиреоз, узлы, интерпретация УЗИ и гормональных анализов.</p></div>
-      <div class="card"><h3>Коррекция веса</h3><p>Метаболический синдром, инсулинорезистентность, современная фармакотерапия ожирения.</p></div>
-      <div class="card"><h3>Анализы «под ключ»</h3><p>Составлю список нужных исследований до приёма и подробно расшифрую результаты после.</p></div>
+    <h2>Услуги</h2>
+    <div class="grid-3">
+        <div class="card">
+            <h3>Консультация по щитовидной железе</h3>
+            <p>Оценка состояния, интерпретация анализов, подбор плана наблюдения и коррекции.</p>
+        </div>
+        <div class="card">
+            <h3>Диабетология и инсулинорезистентность</h3>
+            <p>Разбор углеводного обмена, рекомендации по питанию и образу жизни, контроль показателей.</p>
+        </div>
+        <div class="card">
+            <h3>Коррекция веса и метаболизма</h3>
+            <p>Анализ гормональных причин набора веса, индивидуальный план коррекции и контроля.</p>
+        </div>
+        <div class="card">
+            <h3>Разбор анализов и динамики</h3>
+            <p>Интерпретация лабораторных данных, оценка динамики и прогноз изменений.</p>
+        </div>
+        <div class="card">
+            <h3>Повторные приёмы и сопровождение</h3>
+            <p>Контроль терапии, коррекция дозировок, ответы на вопросы в динамике.</p>
+        </div>
+        <div class="card">
+            <h3>Рекомендации по образу жизни</h3>
+            <p>Индивидуальные советы по питанию, физической нагрузке и режиму дня.</p>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container about-inner">
-    <div class="about-text">
-      <h2 class="section-title" style="text-align:left">Обо мне</h2>
-      <p>Окончила университет, 8 лет практики в эндокринологии. Регулярно прохожу усовершенствование по диабетологии и тиреоидологии.</p>
-      <ul>
-        <li>Специалист по непрерывному мониторингу глюкозы</li>
-        <li>Веду пациентов онлайн с 2020 года — из 40+ городов</li>
-      </ul>
-      <div class="about-stats">
-        <div class="stat"><b>3 500+</b>консультаций</div>
-        <div class="stat"><b>8 лет</b>стажа</div>
-        <div class="stat"><b>4.9 / 5</b>средняя оценка</div>
-      </div>
+<section id="about">
+    <h2>О враче</h2>
+    <div class="about-container">
+        <div>
+            <p><strong>Камышанова Елизавета Сергеевна</strong> — врач-эндокринолог с клиническим опытом более 8 лет. Специализируется на диагностике и терапии заболеваний эндокринной системы, коррекции метаболических нарушений и сопровождении пациентов в долгосрочной динамике.</p>
+            <p>Регулярно повышает квалификацию, участвует в профильных конференциях, ориентируется на доказательную медицину и индивидуальный подход к каждому пациенту.</p>
+            <ul style="margin-top: 1rem;">
+                <li>✅ Стаж: более 8 лет</li>
+                <li>✅ Более 1 200 консультаций</li>
+                <li>✅ Специализация: щитовидная железа, диабет, вес, гормоны</li>
+            </ul>
+        </div>
+        <div>
+            <!-- Замените src на путь к сертификатам: images/certs.jpg -->
+            <img src="images/certs.jpg" alt="Сертификаты и дипломы Камышановой Е.С." class="certs-img">
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- STEPS -->
-<section id="steps">
-  <div class="container">
-    <h2 class="section-title">Как проходит приём</h2>
-    <p class="section-sub">Всё занимает от записи до плана лечения — один день</p>
-    <div class="steps">
-      <div class="step"><h3>Запись</h3><p>Оставляете заявку — я или ассистент подтверждаю время в течение часа в рабочее время.</p></div>
-      <div class="step"><h3>Подготовка</h3><p>Присылаю ссылку на видеозвонок и перечень анализов, если они нужны для консультации.</p></div>
-      <div class="step"><h3>Консультация</h3><p>40 минут онлайн: разбираем жалобы, анализы, историю. Вы получаете письменное заключение.</p></div>
-      <div class="step"><h3>Сопровождение</h3><p>Неделя переписки по лечению включена в стоимость. Повторный приём — по графику.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
 <section id="faq">
-  <div class="container">
-    <h2 class="section-title">Частые вопросы</h2>
-    <p class="section-sub">Не нашли ответ? Напишите мне — отвечу до записи.</p>
-    <details><summary>Нужны ли анализы до первой консультации?</summary><p>Желательно иметь свежие результаты (за 1–3 месяца): ТТГ, свободный Т4, глюкозу или HbA1c. Если анализов нет — подберу минимальный список на приёме.</p></details>
-    <details><summary>Как проходит оплата?</summary><p>Предоплата онлайн по ссылке после подтверждения записи. Чек приходит на электронную почту.</p></details>
-    <details><summary>Можно ли по моим документам получить вычет НДФЛ?</summary><p>Да, предоставляю справку об оплате медуслуг для налогового вычета.</p></details>
-    <details><summary>Что если опоздать или отменить запись?</summary><p>Бесплатная отмена и перенос — не позднее чем за 12 часов до приёма.</p></details>
-  </div>
+    <h2>Часто задаваемые вопросы</h2>
+    <details style="max-width: 600px; margin: 0 auto;">
+        <summary style="cursor: pointer; font-weight: 600; padding: 1rem 0;">Как проходит онлайн-приём?</summary>
+        <p style="padding: 0 1rem 1rem 1rem;">Приём проходит по видеосвязи (Telegram/WhatsApp/Zoom). Перед консультацией вы отправляете анализы и жалобы, на приёме врач задаёт уточняющие вопросы, даёт рекомендации и при необходимости назначает дополнительные исследования.</p>
+    </details>
+    <details style="max-width: 600px; margin: 1rem auto;">
+        <summary style="cursor: pointer; font-weight: 600; padding: 1rem 0;">Нужна ли подготовка к консультации?</summary>
+        <p style="padding: 0 1rem 1rem 1rem;">Да: желательно прислать результаты анализов (ТТГ, Т4, глюкоза, инсулин и др.) и список жалоб. Это сэкономит время на приёме и сделает консультацию более точной.</p>
+    </details>
+    <details style="max-width: 600px; margin: 1rem auto;">
+        <summary style="cursor: pointer; font-weight: 600; padding: 1rem 0;">Можно ли получить заключение и назначения?</summary>
+        <p style="padding: 0 1rem 1rem 1rem;">По итогам приёма вы получаете письменное заключение с рекомендациями. Назначение лекарств и коррекция терапии возможны только при наличии показаний и после оценки состояния.</p>
+    </details>
 </section>
 
-<!-- BOOKING -->
-<section class="booking" id="booking">
-  <div class="container">
-    <h2 class="section-title">Запись на онлайн-приём</h2>
-    <p class="section-sub">Заполните форму — свяжусь с вами в течение рабочего дня</p>
-    <div class="form-card">
-      <form id="bookingForm" novalidate>
-        <div class="form-grid">
-          <div class="full">
-            <label for="name">Имя *</label>
-            <input type="text" id="name" name="name" required placeholder="Как к вам обращаться">
-          </div>
-          <div>
-            <label for="phone">Телефон *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
-          </div>
-          <div>
+<section id="contact">
+    <h2>Записаться на онлайн-приём</h2>
+    <form id="appointment-form">
+        <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <div class="form-group">
             <label for="topic">Тема обращения</label>
             <select id="topic" name="topic">
-              <option>Диабет</option>
-              <option>Щитовидная железа</option>
-              <option>Коррекция веса</option>
-              <option>Другое / разбор анализов</option>
+                <option value="щитовидная железа">Щитовидная железа</option>
+                <option value="диабет">Диабет / инсулинорезистентность</option>
+                <option value="вес">Коррекция веса / метаболизм</option>
+                <option value="анализы">Разбор анализов</option>
+                <option value="другое">Другое</option>
             </select>
-          </div>
-          <div class="full">
-            <label for="when">Удобное время</label>
-            <input type="text" id="when" name="when" placeholder="Например: будни после 18:00">
-          </div>
-          <div class="full">
-            <label for="comment">Комментарий</label>
-            <textarea id="comment" name="comment" rows="3" placeholder="Кратко опишите ситуацию"></textarea>
-          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Отправить заявку</button>
-        <p class="form-note">Отправляя форму, вы соглашаетесь с политикой обработки персональных данных.</p>
-        <p class="form-success" id="formSuccess">Спасибо! Заявка отправлена — скоро с вами свяжусь. 💚</p>
-      </form>
-    </div>
-  </div>
+        <div class="form-group">
+            <label for="time">Удобное время</label>
+            <input type="text" id="time" name="time" placeholder="Например: пн, 18:00">
+        </div>
+        <div class="form-group">
+            <label for="comment">Комментарий / анализы</label>
+            <textarea id="comment" name="comment" placeholder="Кратко опишите жалобы и прикрепите список анализов"></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
+        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.8rem;">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+    </form>
 </section>
 
 <footer>
-  <div class="container footer-inner">
-    <div>
-      <div class="logo" style="color:#9fd8c6;margin-bottom:8px;">Камышанова Елизавета · эндокринолог</div>
-      <p>ИП Камышанова Е.С. · ИНН 000000000000 (замените на свои реквизиты)</p>
-    </div>
-    <div>
-      <p>Тел: <a href="tel:+79000000000">+7 953 088-24-77</a></p>
-      <p>Почта: <a href="mailto:doctor@example.ru">doctor@example.ru</a></p>
-      <p>Telegram / WhatsApp (добавьте свои ссылки)</p>
-    </div>
-  </div>
+    <p>Камышанова Елизавета Сергеевна, врач-эндокринолог</p>
+    <p>Контакты: +7 (XXX) XXX-XX-XX | email@example.com</p>
+    <p class="legal">
+        Консультация носит информационный характер и не является медицинской помощью. Для постановки диагноза и назначения лечения необходима очная консультация врача. Имеются противопоказания. Необходима консультация специалиста.
+    </p>
 </footer>
 
 <script>
-// ---- Демо-обработчик формы ----
-// Чтобы заявки приходили вам, замените этот блок на один из вариантов:
-// 1) <form action="https://formspree.io/f/ВАШ_ID" method="POST"> — simplest, без кода
-// 2) отправка на ваш backend / Telegram-бот
-// 3) готовый виджет записи (YCLIENTS, DIKIDI) — вставляется одной строкой вместо этой формы
-document.getElementById('bookingForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const name  = document.getElementById('name');
-  const phone = document.getElementById('phone');
-  let ok = true;
-  [name, phone].forEach(f => {
-    if(!f.value.trim()){ f.style.borderColor = '#d9534f'; ok = false; }
-    else f.style.borderColor = '#d8e4e0';
-  });
-  if(!ok) return;
-  // Здесь можно отправить данные: fetch('ваш-endpoint', {method:'POST', body:new FormData(this)})
-  console.log('Заявка:', Object.fromEntries(new FormData(this)));
-  this.querySelectorAll('.form-grid, .btn, .form-note').forEach(el => el.style.display='none');
-  document.getElementById('formSuccess').style.display = 'block';
-});
+    document.getElementById('appointment-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Спасибо! Ваша заявка на приём к Камышановой Елизавете Сергеевне принята. Мы свяжемся с вами в ближайшее время.');
+        this.reset();
+    });
 </script>
 
 </body>
